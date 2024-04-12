@@ -9,9 +9,9 @@ Interpreter development in C++ for LISP-like languages:
 <hr>
 
 ### FACTORIAL EXAMPLE
-[Factorial Example](./imgs/example_factorial.PNG)
+![Factorial Example](./imgs/example_factorial.PNG)
 
 <hr>
 
 ### UML
-[UML](./imgs/uml.png)
+![UML](./imgs/uml.png)
