@@ -5,3 +5,13 @@ Interpreter development in C++ for LISP-like languages:
   - Read a file containing the program to be interpreted; the syntax of the program is defined by an unambiguous context-free grammar
   - Execute the program contained in the source file
   - Ask through console for any data input provided by the input instructions and display on the console the result of expressions provided by the output instructions
+
+<hr>
+
+### FACTORIAL EXAMPLE
+[Factorial Example](./imgs/example_factorial.PNG)
+
+<hr>
+
+### UML
+[UML](./imgs/uml.png)
