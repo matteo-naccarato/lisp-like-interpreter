@@ -16,49 +16,121 @@ Interpreter development in C++ for LISP-like language:
 <hr>
 
 ### GRAMMAR
-**PROGRAM**
+<b>PROGRAM</b>
 <pre>
 program        → stmt_block 
-stmt_block     → statement | ( **BLOCK** statement_list ) 
+stmt_block     → statement | ( <b>BLOCK</b> statement_list ) 
 statement_list → statement statement_list | statement 
 </pre>
 
-**STATEMENT**
+<b>STATEMENT</b>
 <pre>
 statement → variable_def | io_stmt | cond_stmt | loop_stmt
 
-variable_def → ( **SET** variable_id num_expr )
-io_stmt      → ( **PRINT** num_expr ) | ( **INPUT** variable_id )
-cond_stmt    → ( **IF** bool_expr stmt_block stmt_block )
-loop_stmt    → ( **WHILE** bool_expr stmt_block )
+variable_def → ( <b>SET</b> variable_id num_expr )
+io_stmt      → ( <b>PRINT<b> num_expr ) | ( <b>INPUT<b> variable_id )
+cond_stmt    → ( <b>IF<b> bool_expr stmt_block stmt_block )
+loop_stmt    → ( <b>WHILE<b> bool_expr stmt_block )
 </pre>
 
-**NUMERICAL EXPRESSION**
+<b>NUMERICAL EXPRESSION<b>
 <pre>
-num_expr → ( **ADD** num_expr num_expr ) | ( **SUB** num_expr num_expr ) | ( **MUL** num_expr num_expr ) 
-         | ( **DIV** num_expr num_expr ) | **number** | **variable_id**
+num_expr → ( <b>ADD<b> num_expr num_expr ) | ( <b>SUB<b> num_expr num_expr ) | ( <b>MUL<b> num_expr num_expr ) 
+         | ( <b>DIV<b> num_expr num_expr ) | <b>number<b> | <b>variable_id<b>
 </pre>
 
-**BOOLEAN EXPRESSION**
+<b>BOOLEAN EXPRESSION<b>
 <pre>
-bool_expr → ( **LT** num_expr num_expr ) | ( **GT** num_expr num_expr ) | ( **EQ** num_expr num_expr ) 
-          | ( **AND** bool_expr bool_expr ) | ( **OR** bool_expr bool_expr ) | ( **NOT** bool_expr ) | **TRUE** | **FALSE**
+bool_expr → ( <b>LT<b> num_expr num_expr ) | ( <b>GT<b> num_expr num_expr ) | ( <b>EQ<b> num_expr num_expr ) 
+          | ( <b>AND<b> bool_expr bool_expr ) | ( <b>OR<b> bool_expr bool_expr ) | ( <b>NOT<b> bool_expr ) | <b>TRUE<b> | <b>FALSE<b>
 </pre>
 
-**VARIABLE**
+<b>VARIABLE<b>
 <pre>
 variable_id → alpha_list
 alpha_list  → alpha alpha_list | alpha
-alpha       → **a** | **b** | **c** | . . . | **z** | **A** | **B** | **C** | . . . | **Z**
+alpha       → <b>a<b> | <b>b<b> | <b>c<b> | . . . | <b>z<b> | <b>A<b> | <b>B<b> | <b>C<b> | . . . | <b>Z<b>
 </pre>
 
-**NUMBERS**
+<b>NUMBERS<b>
 <pre>
 number    → - posnumber | posnumber
-posnumber → **0** | sigdigit rest
-sigdigit  → **1** | . . . | **9**
-rest      → digit rest | **ε**
-digit     → **0** | sigdigit
+posnumber → <b>0<b> | sigdigit rest
+sigdigit  → <b>1<b> | . . . | <b>9<b>
+rest      → digit rest | <b>ε<b>
+digit     → <b>0<b> | sigdigit
+</pre>
+
+<hr>
+
+### UML
+![UML](./imgs/uml.png)
+
+<hr>
+
+### FACTORIAL EXAMPLE
+![Factorial Example](./imgs/example_factorial.PNG)
+# lisp-like-interpreter
+Interpreter development in C++ for LISP-like language:
+- LISP-like program contains variable definitions, input/output instructions, conditional and loop statements and is limited to operations involving integer-type variables
+- Interpreter operations:
+  - Read a file containing the program to be interpreted; the syntax of the program is defined by an unambiguous context-free grammar
+  - Execute the program contained in the source file
+  - Ask through console for any data input provided by the input instructions and display on the console the result of expressions provided by the output instructions
+
+<hr>
+
+### USAGE
+```
+./lispInterpreter.exe [path to the file with lisp code]
+```
+
+<hr>
+
+### GRAMMAR
+<b>PROGRAM</b>
+<pre>
+program        → stmt_block 
+stmt_block     → statement | ( <b>BLOCK</b> statement_list ) 
+statement_list → statement statement_list | statement 
+</pre>
+
+<b>STATEMENT</b>
+<pre>
+statement → variable_def | io_stmt | cond_stmt | loop_stmt
+
+variable_def → ( <b>SET</b> variable_id num_expr )
+io_stmt      → ( <b>PRINT</b> num_expr ) | ( <b>INPUT</b> variable_id )
+cond_stmt    → ( <b>IF</b> bool_expr stmt_block stmt_block )
+loop_stmt    → ( <b>WHILE</b> bool_expr stmt_block )
+</pre>
+
+<b>NUMERICAL EXPRESSION</b>
+<pre>
+num_expr → ( <b>ADD</b> num_expr num_expr ) | ( <b>SUB</b> num_expr num_expr ) | ( <b>MUL</b> num_expr num_expr ) 
+         | ( <b>DIV</b> num_expr num_expr ) | <b>number</b> | <b>variable_id</b>
+</pre>
+
+<b>BOOLEAN EXPRESSION</b>
+<pre>
+bool_expr → ( <b>LT</b> num_expr num_expr ) | ( <b>GT</b> num_expr num_expr ) | ( <b>EQ</b> num_expr num_expr ) 
+          | ( <b>AND</b> bool_expr bool_expr ) | ( <b>OR</b> bool_expr bool_expr ) | ( <b>NOT</b> bool_expr ) | <b>TRUE</b> | <b>FALSE</b>
+</pre>
+
+<b>VARIABLE<b>
+<pre>
+variable_id → alpha_list
+alpha_list  → alpha alpha_list | alpha
+alpha       → <b>a</b> | <b>b</b> | <b>c</b> | . . . | <b>z</b> | <b>A</b> | <b>B</b> | <b>C</b> | . . . | <b>Z</b>
+</pre>
+
+<b>NUMBERS</b>
+<pre>
+number    → - posnumber | posnumber
+posnumber → <b>0</b> | sigdigit rest
+sigdigit  → <b>1</b> | . . . | <b>9</b>
+rest      → digit rest | <b>ε</b>
+digit     → <b>0</b> | sigdigit
 </pre>
 
 <hr>
