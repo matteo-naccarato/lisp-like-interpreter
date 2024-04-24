@@ -13,6 +13,9 @@ Interpreter development in C++ for LISP-like language:
 ./lispInterpreter.exe [path to the file with lisp code]
 ```
 
+### EXAMPLE
+![Factorial Example](./imgs/example_factorial.PNG)
+
 <hr>
 
 ### GRAMMAR
@@ -65,8 +68,3 @@ digit     → <b>0<b> | sigdigit
 
 ### UML
 ![UML](./imgs/uml.png)
-
-<hr>
-
-### FACTORIAL EXAMPLE
-![Factorial Example](./imgs/example_factorial.PNG)
